@@ -2,13 +2,13 @@ const express = require('express');
 const mysql = require('mysql2')
 const app = express();
 var bodyParser= require('body-parser');
-const port = process.env.port || 7526;
+const PORT = process.env.PORT || 7526;
 let con = mysql.createConnection({
     host: 'containers-us-west-63.railway.app',
     user: 'root',
     database: 'railway',
     password: 'S4Jk8iNUjSTDUM7VGrpW',
-    port: '7526'
+    port: PORT
 });
 con.connect(err =>{
     if(err){
@@ -138,6 +138,6 @@ app.get('/editarUsuario',(req,res)=>{
         </form>`)
     })
 })
-app.listen(7526, ()=>{
+app.listen(PORT, ()=>{
     console.log('escuchando en el puerto 7526');
 })
