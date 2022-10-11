@@ -2,11 +2,13 @@ const express = require('express');
 const mysql = require('mysql2')
 const app = express();
 var bodyParser= require('body-parser');
+const port = process.env.port || 7526;
 let con = mysql.createConnection({
     host: 'containers-us-west-63.railway.app',
     user: 'root',
     database: 'railway',
-    password: 'S4Jk8iNUjSTDUM7VGrpW'
+    password: 'S4Jk8iNUjSTDUM7VGrpW',
+    port: '7526'
 });
 con.connect(err =>{
     if(err){
