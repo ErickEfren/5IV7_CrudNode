@@ -8,7 +8,6 @@ let con = mysql.createConnection({
     user: 'root',
     database: 'railway',
     password: 'S4Jk8iNUjSTDUM7VGrpW',
-    port: PORT
 });
 con.connect(err =>{
     if(err){
@@ -17,6 +16,7 @@ con.connect(err =>{
         console.log('Se conecto a la base de datos');
     } 
 });
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
