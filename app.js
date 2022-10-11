@@ -6,7 +6,7 @@ let con = mysql.createConnection({
     host: 'containers-us-west-63.railway.app',
     user: 'root',
     database: 'railway',
-    password: 'Recodo36'
+    password: 'S4Jk8iNUjSTDUM7VGrpW'
 });
 con.connect(err =>{
     if(err){
@@ -137,5 +137,5 @@ app.get('/editarUsuario',(req,res)=>{
     })
 })
 app.listen(7526, ()=>{
-    console.log('escuchando en el puerto 8000');
+    console.log('escuchando en el puerto 7526');
 })
