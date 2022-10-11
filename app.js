@@ -3,13 +3,17 @@ const mysql = require('mysql2')
 const app = express();
 var bodyParser= require('body-parser');
 const PORT = process.env.PORT || 7526;
-let con = mysql.createConnection({
+var mysqlPool = mysql.createPool({
     host: 'containers-us-west-63.railway.app',
     user: 'root',
-    database: 'railway',
     password: 'S4Jk8iNUjSTDUM7VGrpW',
+    database: 'railway',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
-con.connect(err =>{
+module.exports = mysqlPool;
+mysqlPool.connect(err =>{
     if(err){
        console.log(err);
     }else{
@@ -29,7 +33,7 @@ app.post('/agregarUsuario', (req, res) =>{
     let{apmat} = req.body;
     let{tel} = req.body;
     sent = `insert into alumnos (bol,nom,appat,apmat,tel) values ("${bol}","${nom}","${appat}","${apmat}","${tel}")`
-    con.query(sent, (err,respuesta)=>{
+    mysqlPool.query(sent, (err,respuesta)=>{
         if(err) return console.log(err)
         return res.send(`
             <div>
@@ -46,7 +50,7 @@ app.post('/agregarUsuario', (req, res) =>{
 })
 app.get(`/verUsuarios`,(req,res)=>{
     sent = `select * from alumnos`;
-    con.query(sent,(err,respuesta)=>{
+    mysqlPool.query(sent,(err,respuesta)=>{
         if(err) return console.log(err)
         let userHTML = ""
         let i = 0
@@ -81,7 +85,7 @@ app.get(`/verUsuarios`,(req,res)=>{
 app.get('/borrarUsuario',(req,res)=>{
     let {bol} = req.query;
     sent = `delete from alumnos where bol=${bol}`
-    con.query(sent, (err,respuesta)=>{
+    mysqlPool.query(sent, (err,respuesta)=>{
         if(err) return console.log(err);
         return res.send(`<h1>Usuario Eliminado Correctamente</h1>
         <form action="/verUsuarios" method="get">
@@ -130,7 +134,7 @@ app.get('/editarUsuario',(req,res)=>{
     let{apmat} = req.query;
     let{tel} = req.query;
     sent = `update alumnos set nom="${nom}",appat="${appat}",apmat="${apmat}",tel=${tel} where bol=${bol}`
-    con.query(sent,(err, respuesta)=>{
+    mysqlPool.query(sent,(err, respuesta)=>{
         if(err) return console.log(err);
         return res.send(`<h1>Usuario Actualizado Correctamente</h1>
         <form action="/verUsuarios" method="get">
