@@ -3,9 +3,9 @@ const mysql = require('mysql2')
 const app = express();
 var bodyParser= require('body-parser');
 let con = mysql.createConnection({
-    host: '168.192.100.6',
+    host: 'containers-us-west-63.railway.app',
     user: 'root',
-    database: 'alumnos',
+    database: 'railway',
     password: 'Recodo36'
 });
 con.connect(err =>{
@@ -136,6 +136,6 @@ app.get('/editarUsuario',(req,res)=>{
         </form>`)
     })
 })
-app.listen(8000, ()=>{
+app.listen(7526, ()=>{
     console.log('escuchando en el puerto 8000');
 })
