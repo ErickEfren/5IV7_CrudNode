@@ -5,5 +5,5 @@ app.set('view engine', '.ejs');
 app.use(express.urlencoded({extended:false}));
 app.use('/', require('./router.js'));
 app.listen(PORT, ()=>{
-    console.log('Servidor en linea');
+    console.log('Servidor en linea')
 })
