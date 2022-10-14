@@ -5,31 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuevo Alumno</title>
-    <div>
-        <div>Nuevo Alumno</div>
+    <link rel="stylesheet" href="style.css">
+    <div class="title">Nuevo Alumno</div>
+    <div class="container">
         <form action="/save" method="post">
             <div>
                 <label for="user">Boleta</label>
-                <input type="text" name="bol" id="bol">
+                <input type="text" name="bol" id="bol" class="input">
             </div>
             <div>
                 <label for="user">Nombre</label>
-                <input type="text" name="nom" id="nom">
+                <input type="text" name="nom" id="nom" class="input">
             </div>
             <div>
                 <label for="user">Apellido P.</label>
-                <input type="text" name="appat" id="appat">
+                <input type="text" name="appat" id="appat" class="input">
             </div>
             <div>
                 <label for="user">Apellido M.</label>
-                <input type="text" name="apmat" id="apmat">
+                <input type="text" name="apmat" id="apmat" class="input">
             </div>
             <div>
                 <label for="user">Teléfono</label>
-                <input type="text" name="tel" id="tel">
+                <input type="text" name="tel" id="tel" class="input">
             </div>
-            <button type="submit">Guardar</button>
-            <a href="/">Cancelar</a>
+            <button type="submit" class="Guardar">Guardar</button>
+            <a href="/" class="Cancelar">Cancelar</a>
         </form>
     </div>
 </head>

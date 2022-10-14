@@ -5,34 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <%if (user) {%>
-    <div>
-        <div>Editar Datos</div>
+    <div class="title">Editar Datos</div>
+    <div class="container">
         <form action="/update" method="post">
             <div>
                 <label for="user">Boleta</label>
-                <input type="text" name="bol" id="bol" value="<%= user.bol%>" readonly>
+                <input type="text" name="bol" id="bol" class="input" value="<%= user.bol%>" readonly>
             </div>
             <div>
                 <label for="user">Nombre</label>
-                <input type="text" name="nom" id="nom" value="<%= user.nom%>">
+                <input type="text" name="nom" id="nom" class="input" value="<%= user.nom%>">
             </div>
             <div>
                 <label for="user">Apellido P.</label>
-                <input type="text" name="appat" id="appat" value="<%= user.appat%>">
+                <input type="text" name="appat" id="appat" class="input" value="<%= user.appat%>">
             </div>
             <div>
                 <label for="user">Apellido M.</label>
-                <input type="text" name="apmat" id="apmat" value="<%= user.apmat%>">
+                <input type="text" name="apmat" id="apmat" class="input" value="<%= user.apmat%>">
             </div>
             <div>
                 <label for="user">Teléfono</label>
-                <input type="text" name="tel" id="tel" value="<%= user.tel%>">
+                <input type="text" name="tel" id="tel" class="input" value="<%= user.tel%>">
             </div>
-            <button type="submit">Guardar</button>
-            <a href="/">Cancelar</a>
+            <button type="submit" class="Guardar">Guardar</button>
+            <a href="/" class="Cancelar">Cancelar</a>
         </form>
     </div>
     <%}%>
