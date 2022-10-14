@@ -14,7 +14,7 @@
         <form action="/save" method="post"class="border p-3 form">
             <div>
                 <label for="user">Boleta</label>
-                <input type="text" name="bol" id="bol" class="form-control">
+                <input type="number" name="bol" id="bol" class="form-control" maxlength="10">
             </div>
             <div>
                 <label for="user">Nombre</label>
@@ -30,7 +30,7 @@
             </div>
             <div>
                 <label for="user">Teléfono</label>
-                <input type="text" name="tel" id="tel" class="form-control">
+                <input type="number" name="tel" id="tel" class="form-control" maxlength="10">
             </div>
             <button type="submit" class="Guardar" class="btn btn-outline-success">Guardar</button>
             <a href="/" class="Cancelar" class="link-danger">Cancelar</a>
