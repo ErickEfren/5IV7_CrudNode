@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+</head>
+<body>
+    <%if (user) {%>
+    <div>
+        <div>Editar Datos</div>
+        <form action="/update" method="post">
+            <div>
+                <label for="user">Boleta</label>
+                <input type="text" name="bol" id="bol" value="<%= user.bol%>" readonly>
+            </div>
+            <div>
+                <label for="user">Nombre</label>
+                <input type="text" name="nom" id="nom" value="<%=user.nom%>">
+            </div>
+            <div>
+                <label for="user">Apellido P.</label>
+                <input type="text" name="appat" id="appat" value="<%user.appat=%>">
+            </div>
+            <div>
+                <label for="user">Apellido M.</label>
+                <input type="text" name="apmat" id="apmat" value="<%=user.apmat%>">
+            </div>
+            <div>
+                <label for="user">Teléfono</label>
+                <input type="text" name="tel" id="tel" value="<%=user.tel%>">
+            </div>
+            <button type="submit">Guardar</button>
+            <a href="/">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

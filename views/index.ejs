@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud-Node-RBEE</title>
+</head>
+<body>
+    <div class="container">
+        <a href="./create.ejs"></a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Boleta</th>
+                    <th>Nombre</th>
+                    <th>Apellido P.</th>
+                    <th>Apellido M.</th>
+                    <th>Teléfono</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% results.forEach((user)=>{%>
+                <tr>
+                    <td><%= user.bol%></td>
+                    <td><%= user.nom%></td>
+                    <td><%= user.appat%></td>
+                    <td><%= user.apmat%></td>
+                    <td><%= user.tel%></td>
+                    <td>
+                        <a href="/edit/<%= user.bol%>">Editar</a>
+                        <a href="/delete/<%= user.bol%>">Borrar</a>
+                    </td>
+                </tr>
+                <%})%>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
